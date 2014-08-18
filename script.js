@@ -28,6 +28,9 @@ $(function(){
     $('.next').click(next);
     $('.prev').click(prev);
 
+    $(document).swiperight(next);
+    $(document).swipeleft(prev);
+
     // Key Bindings (arrow keys)
     $(document).keydown(function(e) {
         switch(e.which) {
