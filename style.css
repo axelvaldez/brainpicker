@@ -47,7 +47,7 @@ a:hover{
 }
 
 .questions{
-    height: calc(100% - 9rem);
+    height: calc(100% - 8rem);
 }
 
 .questions p{
@@ -143,8 +143,64 @@ h2{
     margin: 0;
 }
 
-@media all and (min-width: calc(1000px - 200px)){
+@media all and (max-width: 880px){
     body{
-        background: red;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0 1rem;
+        width: 100%;
     }
+
+    .keyboard{
+        display: none;
+    }
+    .questions {
+        height: calc(100% - 7rem);
+    }
+}
+
+
+@media all and (max-width: 480px){
+    .controls .button{
+        width: calc(50% - 10px);
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        box-sizing: border-box;
+        float: left;
+        line-height: 3rem;
+    }
+    .controls .next{
+        float: right;
+    }
+
+    .controls .button span{
+        display: none;
+    }
+
+    .keyboard{
+        display: none;
+    }
+
+    .about{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: #111;
+        color: #fff;
+        overflow: auto;
+    }
+
+    .about .container{
+        width: auto;
+        height: auto;
+        background: transparent;
+        color: inherit;
+        margin: auto;
+    }
+
 }
