@@ -1,5 +1,5 @@
 # brainpicker
-====
+
 A set of questions to facilitate design self-critique.
 
 [Visit the website](https://axelvaldez.github.io/brainpicker).
