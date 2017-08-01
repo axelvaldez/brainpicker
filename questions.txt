@@ -1,11 +1,8 @@
-What’s the simpler version of this?
-What does a more polished version of this look like?
-What’s the obvious next step?
-Can it be made more obvious?
-Is it obvious what happens next?
-What problem is that solving?
-What makes this a must have?
-What elements can you eliminate?
+Is there a simpler version of this?
+What parts of this need more polish?
+If you published this as it is, what would be criticized?
+Is it obvious what the function of this is?
+What problem does this solve?
 If this wasn’t your design, how would you critique it?
 If you killed your favorite part of this design, would it still work?
 Who are you designing this for?
