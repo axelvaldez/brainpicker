@@ -1,0 +1,8 @@
+Is there a simpler version of this?
+What parts of this need more polish?
+If you published this as it is, what would be criticized?
+Is it obvious what the function of this is?
+What problem does this solve?
+If this wasn’t your design, how would you critique it?
+If you killed your favorite part of this design, would it still work?
+Who are you designing this for?
