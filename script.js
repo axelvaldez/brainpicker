@@ -1,74 +1,56 @@
-$(function(){
+// globals
+var questions = [
+    'Is there a simpler version of this?',
+    'What parts of this need more polish?',
+    'If you published this as it is, what would be criticized?',
+    'Is it obvious what the function of this is?',
+    'What problem does this solve?',
+    'If this wasn\'t your design, how would you critique it?',
+    'If you killed your favorite part of this design, would it still work?',
+    'Who are you designing this for?'
+];
 
-    // Read questions from text file
-    function getQuestions(){
-        $.get('questions.txt', function(data){
-            var questions = data.split('\n');
-
-            $.each(questions, function(i, question){
-                if (question != ''){
-                    $('#questions').append('<p class="questions__question">' + question + '</p>');
-                }
-            });
-            setUpQuestions();
-        });
-    }
-
-    //shuffleChildren (taken from https://css-tricks.com/snippets/jquery/shuffle-children/)
-    $.fn.shuffleChildren = function(){
-      $.each(this.get(), function(index, el){
-          var $el = $(el);
-          var $find = $el.children();
-
-          $find.sort(function() {
-              return 0.5 - Math.random();
-          });
-
-          $el.empty();
-          $find.appendTo($el);
-      });
-    };
-
-    // setup questions
-    function setUpQuestions(){
-      $("#questions").css('width', ($('.questions__question').length * 100) + '%');
-      $("#questions").shuffleChildren();
-    }
-
-    // Switch to next question
-    function go(direction){
-      if (direction == 'next' && current < $('.questions__question').length - 1){
-        current = current + 1;
-      }
-      if (direction == 'prev' && current > 0){
-        current = current - 1;
-      }
-      $("#questions").css('left', '-' + current * $(window).width() + 'px');
-    }
+colors = [
+    '#F7630C',
+    '#E74856',
+    '#E81123',
+    '#9A0089',
+    '#0078D7',
+    '#0099BC',
+    '#00B7C3',
+    '#00CC6A'
+];
 
 
-    $('.controls__next').click(function(){go('next');});
-    $('.controls__prev').click(function(){go('prev');});
-
-    $(window).on("swiperight", function(){go('next');});
-    $(window).on("swipeleft", function(){go('prev');});
-
-    // Key Bindings (arrow keys)
-    $(document).keydown(function(e) {
-        switch(e.which) {
-            // left
-            case 37: go('prev');
-            break;
-
-            // right
-            case 39: go('next');
-            break;
-
-            default: return;
-        }
-        e.preventDefault();
+function buildCards(e){
+    var parent = document.querySelector('.questions');
+    var c = 0;
+    questions.forEach(question => {
+        element = document.createElement('p');
+        element.classList.add('card');
+        element.classList.add('question');
+        element.style.transform = `rotate(${Math.random() * 10 - 5}deg)`;
+        element.style.background = colors[c];
+        element.style.zIndex = 1;
+        element.addEventListener('click', nextCard);
+        element.appendChild(document.createTextNode(question));
+        parent.appendChild(element);
+        c = (c == colors.length) ? 0 : c + 1;
     });
+}
 
-    var current = 0;
-    getQuestions();
-});
+function nextCard(){
+    console.log(this);
+    this.style.transform+= ' rotateZ(180deg) scale(5)';
+    this.style.opacity = 0;
+    this.addEventListener('transitionend', function(e){
+        if(e.propertyName !== 'opacity') return;
+        this.remove();
+    });
+}
+
+goAgain = document.querySelector('.goagain');
+goAgain.addEventListener('click', buildCards);
+
+buildCards();
+var bottomQuestion = document.querySelector('.question:first-child');
