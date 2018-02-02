@@ -49,7 +49,7 @@ function nextCard(){
     });
 }
 
-goAgain = document.querySelector('.goagain');
+goAgain = document.querySelector('.again');
 goAgain.addEventListener('click', buildCards);
 
 buildCards();

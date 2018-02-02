@@ -96,6 +96,7 @@ p {
   z-index: 1;
   transition: all .2s ease-in;
   opacity: 1;
+  cursor: pointer;
 }
 
 .card a{
@@ -103,10 +104,6 @@ p {
 }
 
 ::selection { background: transparent; } 
-
-.question{
-  cursor: pointer;
-}
 
 .again{
   transform: rotate(-2deg);
